@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Vessels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Daily price</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vessels.each do |vessel| %>
+      <tr>
+        <td><%= vessel.title %></td>
+        <td><%= number_to_currency(vessel.daily_price) %></td>
+        <td><%= link_to 'Edit', edit_vessel_path(vessel) %></td>
+        <td><%= link_to 'Destroy', vessel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Vessel', new_vessel_path %>

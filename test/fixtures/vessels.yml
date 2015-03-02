@@ -1,0 +1,5 @@
+one:
+  title: "A test boat"
+  description: "Don't book this boat, it's a test"
+  daily_price: 200
+  fee_pc: 20

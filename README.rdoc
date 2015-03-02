@@ -1,0 +1,24 @@
+This is a simple scaffold app that allows you to manage vessels.
+
+There are two areas for this:
+
+- The main area, accessible from the root URL /
+- The admin area, accessible from /admin/vessels
+
+Currently every URL is accessible and there is no access control.
+
+You need to do the following:
+
+- Add access control for the admin area.
+- When somebody who is not an admin adds a new, or edits an existing vessel successfully,
+  send a notification email to testappadm@mailinator.com with the following details:
+  * The IP of the client who added/edited the vessel
+  * The new record, if it is a new record
+  * The changes, if it was an edit of an existing record
+  * A link in the admin area, where an admin user can view the record
+- Fix the bug: As a regular user, I can't create a vessel because fee_pc can't be blank.
+  This attribute is required for a vessel to be considered valid, but can only be set/changed
+  by an admin user.
+- BONUS: add test cases for the above requirements.
+
+Use git to commit your changes.

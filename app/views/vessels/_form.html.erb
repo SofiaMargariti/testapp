@@ -1,0 +1,28 @@
+<%= form_for(@vessel) do |f| %>
+  <% if @vessel.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@vessel.errors.count, "error") %> prohibited this vessel from being saved:</h2>
+
+      <ul>
+      <% @vessel.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <dl class='form-fields'>
+    <dt><%= f.label :title, 'Title:' %></dt>
+    <dd><%= f.text_field :title %></dd>
+
+    <dt><%= f.label :description, 'Description:' %></dt>
+    <dd><%= f.text_area :description %></dd>
+
+    <dt><%= f.label :daily_price, 'Daily Price:' %></dt>
+    <dd><%= f.text_field :daily_price %></dd>
+  </dl>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

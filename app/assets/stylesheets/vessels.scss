@@ -1,0 +1,17 @@
+.form-fields {
+  input, textarea {
+    min-width: 20em;
+  }
+
+  textarea {
+    min-height: 5em;
+  }
+
+  dt, dd {
+    margin: 0;
+  }
+
+  dd + dt {
+    margin-top: 10px;
+  }
+}
