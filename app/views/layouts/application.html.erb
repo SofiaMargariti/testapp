@@ -11,7 +11,19 @@
 <div class='top'>
   Testapp - User
 </div>
+<div class="nav">
+  <% if logged_in? %>
+    <p>Welcome <%= current_user.name %></p>
+    <% if current_user.admin? %>
+      <%= link_to "Go to admin", admin_vessels_path %>
+    <% end %>
+    <%= link_to "Log out", logout_path, method: :delete %>
+  <% elsif !current_page?(controller: 'sessions', action: 'create') %>
+    <%= link_to "Log in", login_path, method: :get %>
+  <% end %>
+</div>
 <%= yield %>
+<%= debug(params) if Rails.env.development? %>
 
 </body>
 </html>
