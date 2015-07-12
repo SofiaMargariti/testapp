@@ -1,4 +1,4 @@
 class Vessel < ActiveRecord::Base
-  validates :title, :description, :daily_price, :fee_pc, :presence => true
-  validates :daily_price, :fee_pc, :numericality => true
+  validates :title, :description, :daily_price, :presence => true
+  validates :daily_price, :numericality => true
 end
