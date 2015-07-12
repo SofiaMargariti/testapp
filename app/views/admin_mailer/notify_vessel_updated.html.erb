@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>A vessel have was updated.</h1>
+    <p>
+    Client IP: <%= @ip %>
+    Vessel ID: <%= @vessel.id %>
+    Updated fields:
+    <% @params.each do |k,v| %>
+      <%= "#{k}: #{v}" %>
+    <% end -%>
+    </p>
+  </body>
+</html>

@@ -23,6 +23,9 @@ class VesselsController < ApplicationController
 
     respond_to do |format|
       if @vessel.save
+        if current_user.nil? or !current_user.admin?
+          AdminMailer.notify_vessel_created(request.ip, @vessel).deliver_later
+        end
         format.html { redirect_to vessels_url, notice: 'Vessel was successfully created.' }
         format.json { render :show, status: :created, location: @vessel }
       else
@@ -37,6 +40,9 @@ class VesselsController < ApplicationController
   def update
     respond_to do |format|
       if @vessel.update(vessel_params)
+        if current_user.nil? or !current_user.admin?
+          AdminMailer.notify_vessel_updated(request.ip, @vessel, vessel_params).deliver_later
+        end
         format.html { redirect_to vessels_url, notice: 'Vessel was successfully updated.' }
         format.json { render :show, status: :ok, location: @vessel }
       else
