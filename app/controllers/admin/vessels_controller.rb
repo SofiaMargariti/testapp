@@ -1,5 +1,6 @@
 class Admin::VesselsController < ApplicationController
   layout 'admin'
+  before_action :require_admin
   before_action :set_vessel, only: [:show, :edit, :update, :destroy]
 
   # GET /vessels
@@ -66,5 +67,12 @@ class Admin::VesselsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def vessel_params
       params.require(:vessel).permit(:title, :description, :daily_price, :fee_pc)
+    end
+
+    def require_admin
+      if current_user.nil? or !current_user.admin?
+        flash[:error] = "You must be an admin to access this section"
+        redirect_to login_url
+      end
     end
 end

@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-
+<% if flash[:error] -%>
+  <p class='error'><%=h flash[:error] %></p>
+<% end -%>
 <h1>Listing Vessels</h1>
 
 <table>
